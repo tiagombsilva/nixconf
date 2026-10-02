@@ -9,5 +9,5 @@
       description = "eagle's account";
       extraGroups = ["wheel" "networkmanager"];
     };
-}
+};
 }

@@ -24,24 +24,6 @@
         { device = "/dev/disk/by-uuid/00994c65-b412-4d44-8861-720de60c71c1"; }
       ];
 
-      preferences = {
-        hardware = {
-          monitors = [ 
-          {
-            name = "eDP-2";
-            mode = "1920x1200@165.004";
-            scale = 1.0;
-            position = "0,0";
-          }
-          ];
-
-         keyboard = {
-          layout = "pt";
-          numlock = true;
-         };
-        };
-      };
-
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };

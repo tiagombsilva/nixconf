@@ -13,5 +13,5 @@
         LC_TELEPHONE = "pt_PT.UTF-8";
         LC_TIME = "pt_PT.UTF-8";
       };
-}
+};
 }

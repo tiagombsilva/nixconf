@@ -16,6 +16,21 @@
       networking.hostName = "eagle-laptop";
       networking.networkmanager.enable = true;
 
+      services.displayManager.noctalia-greeter = {
+        enable = true;
+
+        settings.outputs = [
+          {
+            name = "eDP-2";
+            mode = "1920x1200@165.004";
+            scale = 1.0;
+            position = "0,0";
+          }
+        ];
+      };
+
+      programs.niri.keyboardLayout = "pt";
+
       services.xserver.xkb = {
         layout = "pt";
         variant = "";
