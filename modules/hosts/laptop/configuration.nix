@@ -5,7 +5,6 @@
         self.nixosModules.laptopHardware
         self.nixosModules.base
 
-        self.nixosModules.noctalia-greeter
         self.nixosModules.niri
       ];
 
@@ -28,8 +27,6 @@
           }
         ];
       };
-
-      programs.niri.keyboardLayout = "pt";
 
       services.xserver.xkb = {
         layout = "pt";

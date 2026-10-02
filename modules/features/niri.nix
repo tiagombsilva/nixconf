@@ -1,23 +1,15 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.niri = { config, lib, pkgs, ... }: {
-    options.programs.niri.keyboardLayout = lib.mkOption {
-      type = lib.types.str;
-      default = "us";
-    };
-
     config.programs.niri = {
       enable = true;
-
       package =
-        self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri {
-          keyboardLayout = config.programs.niri.keyboardLayout;
-        };
+        self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
     };
   };
 
   perSystem = { pkgs, lib, self', ... }: {
-    packages.myNiri = { keyboardLayout }:
+    packages.myNiri =
       inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
 
@@ -26,7 +18,7 @@
             (lib.getExe self'.packages.myNoctalia)
           ];
 
-          input.keyboard.xkb.layout = keyboardLayout;
+          input.keyboard.xkb.layout = "us";
 
           xwayland-satellite.path =
             lib.getExe pkgs.xwayland-satellite;
